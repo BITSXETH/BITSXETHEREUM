@@ -1,0 +1,93 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ethereum Course</title>
+        <link rel="stylesheet" href="page1.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+       
+
+    </head>
+    <body>
+         <div class="sidebar">
+            <div class="logo_content">
+                <div class="logo">
+                    <i class='bx bxs-hard-hat'></i>
+                    <div class="logo_name"> ETHxBITS</div>
+                 </div>
+                 <i class='bx bx-menu' id="btn" ></i>
+            </div>
+            <ul class="nav_list">
+                <li>
+                   <a href="page1.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">Introduction</span>
+                   </a> 
+                   <a href="page2.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">Solidity</span>
+                   </a>
+                   <a href="page1.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">ERC20</span>
+                   </a> 
+                   <a href="page1.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">Deplyoment</span>
+                   </a> <a href="page1.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">On-chain-Dex</span>
+                   </a>  
+                </li>
+            </ul>    
+        </div>            
+          <div class="home_content">  
+            <div class="text">What are Cryptocurrencies?</div>
+                 <p class="para">Cryptocurrencies are a cutting-edge type of virtual or digital money that use encryption to provide decentralized control, safe financial transactions, and the generation of new units. The goal behind cryptocurrencies is to create a currency that is uncontrolled by a single entity, rendering it impervious to manipulation or intervention by the government.
+
+               <br><br>   The world was first exposed to the possibility of a decentralized monetary system with the introduction of Bitcoin in 2009. This is when cryptocurrencies first emerged. Since then, thousands of alternative cryptocurrencies have entered the market, each with its own special characteristics, functions, and technological foundations.
+                </p><br>
+            <div class="text">A quick look at Ethereum</div>
+                <p class="para">Ethereum, proposed in late 2013 and launched in 2015, is a decentralized platform that enables smart contracts and decentralized applications (DApps) to be built and operated without any downtime, fraud, control, or interference from a third party. Ethereum is not just a platform but also a programming language (Turing complete) running on a blockchain, helping developers to build and publish distributed applications.
+                    The potential applications of Ethereum are wide-ranging and powered by its native cryptographic token, ether (commonly abbreviated as ETH). In 2014, Ethereum launched a presale for ether, which received an overwhelming response. Ether is like a vehicle for moving around on the Ethereum platform and is sought by developers looking to develop and run applications inside Ethereum. 
+                    <br>Ether serves two main purposes:<br>
+                    1.  Compensate the mining full nodes that power its network. This keeps things running smoothly at an administrative level.<br>2.  Pay people under smart contract conditions. This is what motivates users to work on the Ethereum platform.   
+                </p><br>   
+            <div class="text">What are smart contracts?</div>
+                <p class="para">Smart contracts are self-executing contracts with the terms of the agreement directly written into lines of code. They exist across a decentralized blockchain network, which allows them to be executed automatically when certain conditions are met, without the need for intermediaries. This automation ensures that all participants can immediately confirm the outcome, making transactions traceable, transparent, and irreversible.
+
+                   <br><br> The concept was first proposed by Nick Szabo in 1994 as a way to extend the functionality of electronic transaction methods to the digital realm. Smart contracts can facilitate, verify, or enforce the negotiation or performance of a contract, often involving things like funds, shares, property, or any valuable asset.
+                    
+                  <br><br>In essence, smart contracts are like digital vending machines: input the required data or assets, and if the conditions are right, the contract executes the agreed-upon terms, such as transferring funds or registering a vehicle. They are immutable once deployed, which means they cannot be altered, adding a layer of security and trust to digital transactions.
+                    
+                    <br><br>Smart contracts are a foundational element of various blockchain platforms, notably Ethereum, which enhances their functionality by allowing the creation of decentralized applications that can serve a multitude of purposes beyond simple transactions. As technology evolves, smart contracts are becoming increasingly sophisticated, capable of handling complex agreements and functions in the digital economy.
+                     
+                </p><br>
+            <div class="text">The Ethereum Virtual Machine (EVM)</div>
+                 <p class="para">
+                    The Ethereum Virtual Machine (EVM) is the heart of the Ethereum blockchain, acting as a global, decentralized computer that executes smart contracts and manages the network’s state. It’s a Turing-complete system, meaning it can run any computation given enough resources. The EVM operates in an isolated environment, ensuring that operations on the blockchain do not affect the main network and vice versa.
+                    
+                   <br><br> Smart contracts run on the EVM. The EVM enables developers to create complex decentralized applications (dApps), which can range from games to financial services.
+                    
+                </p><br>
+            <div class="text">What are dApps?</div>
+                 <p class="para">
+                    Decentralized applications (dApps) are applications that run on a peer-to-peer network of computers rather than a single computer. dApps are built on the Ethereum blockchain, which provides a trustless environment where dApps can operate securely and without the need for intermediaries.
+                  <br><br> 
+                  Here are some examples of dApps on Ethereum<br><br><u>Uniswap:</u> A decentralized exchange that allows users to swap various Ethereum-based tokens directly with each other1.
+                 <br><u>OpenSea:</u> A marketplace for non-fungible tokens (NFTs), where users can buy, sell, and discover digital collectibles1.
+                 <br><u>CryptoKitties:</u> One of the first blockchain games, where players can collect, breed, and trade virtual cats2.
+                 <br><u>Decentraland:</u> A virtual reality platform where users can buy, sell, and build on parcels of virtual land2.
+                 <br><u>Aave and Compound:</u> Platforms that allow users to lend and borrow cryptocurrencies, earning interest or taking out loans against their crypto assets  
+                </p><br>  
+            <div class="text">On-chain-dex (The dApp we will be using)</div>
+                <p class="para">The GitHub repository at “cjxe/on-chain-dex” is a project that features a 
+                    100% on-chain central limit order book (CLOB) decentralized exchange (DEX) on the Ethereum blockchain. It allows traders to trade cryptocurrencies by calling smart contracts hosted on the Ethereum test network, Sepolia. The project is open-source, self-hosted, and comes with a responsive user interface. The back end consists of smart contracts running on the Ethereum Virtual Machine (EVM), while the front end size is 627 kb. 
+                    Notably, it does not require Know Your Customer (KYC) compliance for trading. 
+                </p><br>         
+
+     <script src="myscripts.js"></script>
+
+    </body>
+
+ </html>       
