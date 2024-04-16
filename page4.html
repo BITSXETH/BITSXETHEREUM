@@ -1,0 +1,97 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ethereum Course</title>
+        <link rel="stylesheet" href="page.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+       
+
+    </head>
+    <body>
+         <div class="sidebar">
+            <div class="logo_content">
+                <div class="logo">
+                    <i class='bx bxs-hard-hat'></i>
+                    <div class="logo_name"> ETHxBITS</div>
+                 </div>
+                 <i class='bx bx-menu' id="btn" ></i>
+            </div>
+            <ul class="nav_list">
+                <li>
+                   <a href="page1.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">Introduction</span>
+                   </a>
+                   <a href="page2.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">Solidity</span>
+                   </a>
+                   <a href="page3.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">ERC20</span>
+                   </a> 
+                   <a href="page4.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">Deplyoment</span>
+                   </a> <a href="page5.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">On-chain-Dex</span>
+                   </a>   
+                </li>
+            </ul>    
+        </div>            
+          <div class="home_content">
+            <div class="text">Writing Test Cases for the Contract</div>
+          <p class="para">Navigate to test in project files and delete the default Lock.js script.Create a new file names Test.js<br><img src="test1.png"><br><br><img src="test2.png"><br><br>
+            Here's a brief description of each test case in  test suite:
+            <br><b>Deployment -</b> Should set the right owner: This test ensures that upon deployment of the token contract, the owner's address is correctly set and initialized with a balance of 100,000 tokens.
+            <br><b>Transactions -</b> Should transfer tokens between accounts: This test verifies that tokens can be transferred successfully from one account to another. It transfers 50 tokens from the owner's account to addr1 and then checks if addr1's balance is updated accordingly.
+            <br><b>Transactions -</b> Should fail if sender doesn't have enough tokens: This test checks if a transaction fails with the appropriate error message when a sender attempts to transfer tokens without having a sufficient balance.
+            <br><b>Transactions -</b> Should update balances after transfers: This test performs multiple token transfers and checks if the balances of the respective accounts are updated correctly after each transfer. It transfers 100 tokens to addr1 and 50 tokens to addr2 from the owner's account, then verifies the final balances of all three accounts.
+            <br>Run the tests by typing the command <b>npx hardhat test</b> in the terminal
+
+         </p><br>
+         <div class="text">Setting up Testnet for Contract Deployment </div>
+                <p class="para">Open the  hardhat.config.js and below is the code for setting up testnet<br><img src="test3.png"><br><br>
+                    This Hardhat configuration file specifies the version of Solidity to be used as 0.8.24.
+ <br>It defines a network named "testnet", providing the URL of the Ethereum node to connect to via the <b>PROVIDER_URL</b> environment variable, and the private key for deploying contracts and making transactions via the <b>PRIVATE_KEY</b> environment variable. 
+<br>Additionally, it imports two plugins: <b>@nomicfoundation/hardhat-toolbox,</b> which provides additional utilities for Hardhat, <b> @nomicfoundation/hardhat-ignition,</b> which facilitates easy contract deployment and testing on various networks.
+
+<br><br>Make sure to install the dependencies with the help of <b>npm install dotenv</b>  ,Once installed, you can create a<b> .env</b> file in your project directory to store your environment variables<br><img src="test4.png"><br><br>
+Provide the .env file with suitable rpc endpoint of your desired testnet,and provide the private key of your metamask account .Private keys are sensitive pieces of information that grant access to your cryptocurrency assets. Exercise extreme caution when handling private keys.
+               </p><br>
+         <div class="text">Deployment using HardHat ignition</div>
+               <p class="para">Now lets write the deployment script ,navigate to <b>ignition/module</b> in the hardhat project.delete the pre-existing <b>Lock.js</b> and create a <b>Deploy.js</b> file within it<br><img src="test5.png"><br><br> 
+                <b>const { buildModule } = <br>require("@nomicfoundation/hardhat-ignition/modules");:</b>
+                <br>This line imports the <b>buildModule</b> function from the <b>@nomicfoundation/hardhat-ignition/modules</b> package. <b>hardhat-ignition</b> is a plugin for Hardhat that facilitates contract deployment and testing on various networks.
+               <br><br> <b>module.exports = buildModule("MyTokenModule", (m) => {:</b>
+                <br>Here, we export the result of calling the <b>buildModule</b> function. This function takes two arguments:
+                <br>A string identifier for the module, in this case, "MyTokenModule".
+                <br>A callback function <b>(m) => {...},</b> where m is an object representing the module being built.
+                <br><br><b>const tokencontract = m.contract("MyToken", []);:</b>
+                <br>This line defines a constant variable <b>tokencontract</b> and assigns it the result of calling the <b>contract</b> method on the module object <b>m</b>.
+                <br>The <b>contract</b> method takes two arguments:
+                <br>&nbsp;&nbsp;The name of the Solidity contract to be deployed, which is "MyToken" in this case.
+                <br>&nbsp;&nbsp;An array of constructor arguments, which is empty ([]) in this case, indicating that the contract does not have any constructor arguments.
+                <br><br><b>return { tokencontract };:</b>
+                <br>Finally, this line returns an object with a property tokencontract
+            </p><br><br><br>
+
+        <div class="text1">Now we are ready to deploy the smart contract </div>
+        <div class="text">1.Deploying on localhost</div>
+              <p class="para"> Setup a hardhat node with command <b>npx hardhat node</b>
+                <br>Open a new terminal and deploy the contract on localhost with command <b>npx hardhat ignition deploy ignition/modules/deploy.js --network localhost</b> 
+            </p><br>
+        <div class="text">2.Deploying on testnet</div> 
+        <p class="para">Deploy the contract on localhost with command <b>npx hardhat ignition deploy ignition/modules/deploy.js --network testnet</b> ,replace testnet with the name provided in <b>hardhat.config.js</b>
+           <br> <br><b>The above contract has been deployed on sepolia testnet with a contract address 0x14A50276Bd0B747370D476C918FF488b8e663A08 
+            All transactions taking place could be checked by typing the above address on sepolia.etherscan.io</b>    
+        </p><br>
+
+
+            <script src="myscripts.js"></script>
+
+    </body>
+
+ </html>  

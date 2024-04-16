@@ -1,0 +1,102 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ethereum Course</title>
+        <link rel="stylesheet" href="page.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+       
+
+    </head>
+    <body>
+         <div class="sidebar">
+            <div class="logo_content">
+                <div class="logo">
+                    <i class='bx bxs-hard-hat'></i>
+                    <div class="logo_name"> ETHxBITS</div>
+                 </div>
+                 <i class='bx bx-menu' id="btn" ></i>
+            </div>
+            <ul class="nav_list">
+                <li>
+                   <a href="page1.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">Introduction</span>
+                   </a>
+                   <a href="page2.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">Solidity</span>
+                   </a>
+                   <a href="page3.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">ERC20</span>
+                   </a> 
+                   <a href="page4.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">Deplyoment</span>
+                   </a> <a href="page5.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">On-chain-Dex</span>
+                   </a>   
+                </li>
+            </ul>    
+        </div>            
+          <div class="home_content">  
+            <div class="text1">Getting Started with Decentralized Exchanges (DEX)
+            </div>
+            <div class="text">Introduction to Decentralized Exchanges
+            </div>
+            <p class="para">Decentralized Exchanges (DEX) offer a trading platform for cryptocurrencies that do not rely on a central authority to facilitate trading. Unlike Centralized Exchanges (CEX), where the exchange controls the user's funds, DEXs allow users to maintain control over their coins through blockchain technology. This project seeks to blend the precision of CEX order books with the autonomy offered by DEXs, providing a user-friendly, universally accessible DEX coded in Solidity on the Ethereum blockchain.
+           </p><br>
+           <div class="text"> The Need for DEX</div>
+                <p class="para">Post the 2007-2008 financial crisis, which highlighted the risks of centralized financial systems, Bitcoin emerged with the aim to offer a people-driven financial system without intermediaries, using blockchain technology. This movement kickstarted the development of decentralized financial systems, including DEXs, to give users full control over their financial transactions without relying on centralized entities.
+               </p><br>
+            <div class="text"> Setting Up the Environment</div>
+                <p class="para">For our DEX, two ERC20 tokens were created using the OpenZeppelin library for solidity. These tokens form the basis of trades on the exchange. Features such as whitelisting, allowing only the exchange deployer to collect trading fees, were implemented to enhance security and integrity.
+               </p><br>
+            <div class="text">Initial Steps:</div>
+               <p class="para">
+                <br>1. Creation of ERC20 Tokens: Two tokens are coded from scratch, later utilizing the OpenZeppelin ERC20.sol library for standard functionalities.
+                <br>2. Whitelisting: Implemented via the OpenZeppelin Ownable.sol library, this feature restricts trading fee collection to the deployer of the exchange smart contract.
+                <br>3. Smart Contracts: Development began with the exchange smart contract, followed by the factory smart contract, which facilitates the creation of multiple exchange smart contracts for different token pairs.
+                
+              </p><br>
+            <div class="text">Basic Operations:</div>
+              <p class="para">- Initializing a PVnode: A prerequisite action for placing orders, ensuring the user interface is streamlined.
+              <br>  - Placing a Limit Order: Users can specify the price at which they wish to buy or sell, providing control over trading activities.
+               <br> - Canceling Orders: Offers users the flexibility to revoke their orders before matching.
+               <br><br><br>
+            <div class="text1"> Advanced Concepts in DEX </div>
+            <div class="text">  Order Book DEX Model</div>
+               <p class="para">The project aims to create a decentralized exchange (DEX) that operates with order books stored on the blockchain, allowing sophisticated trading mechanisms similar to centralized exchanges but with the security and autonomy of decentralized operations.
+              </p><br>
+            <div class="text"> Key Concepts:</div>
+              <p class="para">- PVnode Initialization: To enhance user experience, PVnodes for a range of price values can be initialized upfront, allowing users to avoid multiple steps when placing orders.
+               <br> - Limit Order Protocol: The protocol allows traders to specify the exact price at which they are willing to buy or sell a token, making trades more precise.
+             </p><br>
+            <div class="text">Order Matching and Execution</div>
+               <p class="para">The order book employs a sophisticated system of linked lists to store and match buy and sell orders, ensuring efficient trading across different price points. This system allows for:
+               <br> - Sequential Orders:Ensures that orders can be placed and matched in a sequence, offering fairness in trading.
+               <br>- Optimizing Gas Costs: Implementation choices aim to minimize gas costs while maintaining efficient order matching and execution.
+               </p><br>
+            <div class="text">Challenges and Solutions in DEX Development</div>
+               <p class="para">One of the main challenges encountered in the development of this DEX was optimizing the smart contract for gas efficiency and time complexity. Solutions included:
+              <br>  - Off-chain Calculations: Moves part of the computational workload off-chain, significantly reducing gas costs.
+              <br> -Streamlined Order Placement: S Proposes initializing a range of PVnodes upfront to simplify the user's interaction with the DEX.
+               </p><br>
+           <div class="text">Note</div>
+               <p class="para">This DEX project combines the best of CEX and DEX worlds, offering a platform that is secure, user-friendly, and efficient. Through extensive testing and careful design, a robust DEX with order book functionality has been developed, broadening the horizons for decentralized trading.
+
+               </p><br>
+
+             </p><br>
+
+
+
+            
+     
+     <script src="myscripts.js"></script>
+
+    </body>
+
+ </html>  

@@ -1,0 +1,162 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ethereum Course</title>
+        <link rel="stylesheet" href="page.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+       
+
+    </head>
+    <body>
+         <div class="sidebar">
+            <div class="logo_content">
+                <div class="logo">
+                    <i class='bx bxs-hard-hat'></i>
+                    <div class="logo_name"> ETHxBITS</div>
+                 </div>
+                 <i class='bx bx-menu' id="btn" ></i>
+            </div>
+            <ul class="nav_list">
+                <li>
+                   <a href="page1.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">Introduction</span>
+                   </a>
+                   <a href="page2.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">Solidity</span>
+                   </a>
+                   <a href="page3.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">ERC20</span>
+                   </a> 
+                   <a href="page4.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">Deplyoment</span>
+                   </a> <a href="page5.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">On-chain-Dex</span>
+                   </a>   
+                </li>
+            </ul>    
+        </div>            
+          <div class="home_content">  
+            <div class="text">What is Solidity?</div>
+                 <p class="para">Solidity is an object-oriented, high-level programming language for creating smart contracts on the Ethereum blockchain. It's influenced by C++, Python, and JavaScript, and is designed to target the Ethereum Virtual Machine (EVM).
+                     Solidity is statically typed, supports inheritance, libraries, and complex user-defined types, among other features. With it, developers can write applications that implement self-enforcing business logic embodied in smart contracts, leaving a non-repudiable and authoritative record of transactions. Writing smart contracts in Solidity enables functions such as voting, crowdfunding, blind auctions, and multi-signature wallets. 
+                    It's crucial to use the latest version of Solidity due to regular updates and security fixes. As a rapidly evolving language, Solidity introduces breaking changes and new features often, reflecting the fast-paced innovation in blockchain technology
+               </p><br> 
+               <div class="text">Data Types in Solidity:</div>
+                <p class="para"><b>Unsigned Integer:</b> A number without a sign (not positive or negative)<br>
+                    <b>Integer:</b> A number that could be either positive or negative<br>
+                    <b>Boolean:</b> Either true or false<br>
+                    <b>Enum:</b> Defining options for a value by name<br>
+                    <b>Address:</b> Addresses hold a 20-byte value which represents the size of an  Ethereum address.<br> 
+                    <br>Given below is code showing different data types in solidity:<br>
+                    
+<br>contract Types <br>
+ 
+    <br>// Initializing Bool variable &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Initializing Integer variable &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Initializing String variable &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Defining an enumerator
+    <br>bool public boolean = false; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int32 public int_var = -3;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string public str = "Solidity";&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enum my_enum { smart,contracts, in, solidity }
+               </p><br>
+             <div class="text">Storage variables:</div>
+                <p class="para">Storage variables are kept in Solidity’s storage scope, they take up contiguous storage slots<br><br>
+
+                    contract Example {<br>
+                      uint256 a; // storage slot - 0x0<br>
+                      uint256 b; // storage slot - 0x1<br>
+                      bool public c; // storage slot - 0x2<br><br>
+                    
+                      function store() external {<br>
+                        // read storage slot 0x1<br>
+                        // store it in storage slot 0x0<br>
+                        a = b;<br><br>
+                    
+                        // read storage slot 0x1<br>
+                        // store it in memory<br> 
+                        uint x = b;<br>
+                     &nbsp; }<br>
+                    }<br><br>
+                    
+                    (external means that the functions are the type of functions that are part of the contract but can only be used externally and called outside the contract by the other contracts)
+               </p><br>
+             <div class="text">Functions in Solidity</div>
+               <p class="para">A function is simply a collection of code that may be utilized again throughout the program, 
+                which typically reduces the amount of memory used excessively and shortens the program's runtime. 
+                Writing the same code repeatedly can be minimized by creating a function. 
+                Functions allow a program to be broken up into numerous smaller bits of code for easier comprehension and management.
+                <br><br>In Solidity a function is generally defined by using the function keyword, followed by the name of the 
+                function which is unique and does not match with any of the reserved keywords. A function can also have a 
+                list of parameters containing the name and data type of the parameter. The return value of a function is 
+                optional but in solidity, the return type of the function is defined at the time of declaration.
+               <br><br> function function_name(parameter_list) scope returns(return_type) {<br>
+                    // block of code }<br><br>
+             
+             contract Test {<br>
+                 // Defining a function to calculate sum of two numbers<br>
+                 function add() public pure returns(uint){<br>
+                     uint num1 = 10;<br>
+                     uint num2 = 16;<br>
+                     uint sum = num1 + num2;<br>
+                     return sum;<br>
+             &nbsp;&nbsp;    }<br>
+             }<br>
+             (pure means that the function can’t read/write from the blockchain)
+              </p><br>
+            <div class="text">Calling a function</div>
+                <p class="para">contract Test {<br>
+                    //Defining public pure sqrt function<br>
+                    function sqrt(uint _num) public pure returns(uint){<br>
+                       _num = _num ** 2;<br>
+                       return _num;<br>
+                    }<br>
+                    // Defining a public pure function to demonstrate<br>
+                    // calling of sqrt function<br>
+                    function add() public pure returns(uint){<br>
+                      uint num1 = 10;<br> 
+                      uint num2 = 16;<br>
+                      uint sum = num1 + num2;<br>
+                      return sqrt(sum); // calling function<br>
+                &nbsp;&nbsp;}<br>
+                }<br>
+               </p><br>
+            <div class="text">Message calls in Solidity </div>
+                <p class="para">The call function in Solidity is a low level function developers use to interact with other contracts.
+                 <br>   Calldata is a type of temporary storage, containing the data specified in a function’s arguments. The difference between it and memory, another type of temporary storage, is that calldata’s immutability—whatever is stored inside calldata cannot be changed.
+                    
+                <br><br>  contract SendEther {
+                    
+                <br><br>  function sendViaCall(address payable _to) public payable {
+                    <br>  // Call returns a boolean value indicating success or failure.
+                     <br>   (bool sent, bytes memory data) = _to.call{value: msg.value}("");
+                      <br>  require(sent, "Failed to send Ether");
+                       <br> &nbsp;&nbsp;}
+                      <br>}
+                    
+                <br><br>Use the following code in a Solidity IDE, like Remix and run it, replacing address payable _to with the recipient address.
+                    
+                <br><br>contract ReceiveEther {
+                    <br>// Function to receive Ether. msg.data must be empty
+                      <br>receive() external payable {}‍
+                      
+                    <br><br>// Fallback function is called when msg.data is not empty
+                      <br>fallback() external payable {}‍
+                      
+                <br><br>function getBalance() public view returns (uint) {
+                    <br>return address(this).balance;
+                     <br>&nbsp;&nbsp;  }
+                      <br>}
+                    
+                <br>Given above is code for receiving ether     
+                <br>(view means that the function can only read from the blockchain, not write to it)
+                    
+
+               </p><br>
+               
+     
+     <script src="myscripts.js"></script>
+
+    </body>
+
+ </html>  

@@ -1,0 +1,174 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ethereum Course</title>
+        <link rel="stylesheet" href="page.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+       
+
+    </head>
+    <body>
+         <div class="sidebar">
+            <div class="logo_content">
+                <div class="logo">
+                    <i class='bx bxs-hard-hat'></i>
+                    <div class="logo_name"> ETHxBITS</div>
+                 </div>
+                 <i class='bx bx-menu' id="btn" ></i>
+            </div>
+            <ul class="nav_list">
+                <li>
+                   <a href="page1.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">Introduction</span>
+                   </a>
+                   <a href="page2.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">Solidity</span>
+                   </a>
+                   <a href="page3.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">ERC20</span>
+                   </a> 
+                   <a href="page4.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">Deplyoment</span>
+                   </a> <a href="page5.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">On-chain-Dex</span>
+                   </a>   
+                </li>
+            </ul>    
+        </div>            
+          <div class="home_content">
+            <div class="text">What is ERC20?</div>
+          <p class="para">ERC20 ,short for "Ethereum Request for Comment 20,"  is a standard interface for fungible tokens on the Ethereum blockchain. It defines a set of functions that tokens must implement, allowing them to be compatible with the broader Ethereum ecosystem. These functions include transferring tokens, querying balances, and approving token spending.
+         </p><br>
+         <div class="text">Key Features</div>
+                <p class="para"><b>Fungibility:</b> ERC20 tokens are fungible, meaning each token is interchangeable with another token of the same type. This characteristic facilitates seamless token exchange and interoperability within the Ethereum ecosystem.
+                <br><br><b>Basic Functions:</b> ERC20 tokens include fundamental functions such as:
+                <br><u>balanceOf(address):</u> Allows querying the balance of tokens held by a specific address.
+                <br><u>transfer(address, uint256):</u> Enables transferring tokens from the sender's address to another address.
+                <br><u>approve(address, uint256):</u> Permits another address to withdraw tokens from the sender's address.
+                <br><br><b>Optional Functions:</b> In addition to the basic functions, ERC20 tokens may include optional functions such as:
+                <br><u>allowance(address, address):</u> Allows checking the amount of tokens a spender is permitted to withdraw from a specific address.
+                <br><u>transferFrom(address, address, uint256):</u> Facilitates transferring tokens on behalf of another address.
+                <br><br><b>Events:</b> ERC20 tokens emit events to notify external entities about token transfers and approvals. These events enhance transparency and enable efficient tracking of token movements.
+                <br><br><b>Token Metadata:</b> ERC20 tokens can include metadata such as the token name, symbol, and decimal places. This metadata enhances user-friendliness and ensures compatibility with wallets and exchanges.
+
+               </p><br>
+               <div class="text">Benefits</div>
+                <p class="para"><b>Interoperability:</b> ERC20 standardization promotes interoperability, enabling seamless integration of tokens across various Ethereum-based applications, wallets, and exchanges.
+                    <br><b>Widespread Adoption:</b> The ERC20 standard has gained widespread adoption, making it the de facto standard for token creation on the Ethereum blockchain.
+                    <br><b>Tokenization:</b> ERC20 tokens facilitate the tokenization of various assets, allowing for the representation of real-world assets, digital collectibles, and utility tokens on the Ethereum blockchain.
+
+               </p><br>
+
+               <div class="text">Setting Up Hardhat Development Environment</div>
+                <p class="para">Ensure you have Node.js and npm installed on your machine<br><br>
+
+                    1. Install hardhat by typing the below command onto the command prompt or Vscode terminal<br>
+                                                                     <p style="text-align: center;">  npm install -g hardhat<br></p>
+                <p style="margin-left: 25px; font-weight: 300;">    2. Create a project directory.Navigate to the project directory with ‘cd’ command and run ‘npx hardhat’</p>
+                    
+                                                                           <br><p style="text-align: center;"> mkdir my-project
+                                                                            <br>cd my-project
+                                                                            <br>npx hardhat</p>
+                                                                            <p style="margin-left: 25px; font-weight: 300;">  <br> 3.Select default options and create a javascript project </p>
+                    
+               <img src="hardhat.png" style="margin-left: 25px;"><br><br>
+              <p style="margin-left:25px;"> 4.The project directory will now contain the following folders
+  <br>The <u>contracts</u> folder will house the Solidity token contract, and you can store additional contracts here.
+<br>Use the <u>test</u> folder to draft unit tests for our token, which will help identify and prevent potential future issues.
+<br>The <u>ignition</u> folder has modules for deployment purposes.
+<br>The <u>hard hat.config.js</u> file will help us configure HardHat.</p> 
+               </p><br>
+               <div class="text">Creating an ERC20 Token</div>
+                <p class="para">In the Contract directory, locate a file named “Lock.sol.” Since it’s redundant, delete it. Then, generate a new Solidity file titled “MyToken.sol”.Following is the code for deploying a ERC20 token.
+                     <img src="erc20.png"><br><br>
+                
+                     <b>import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+                  <br>   import "@openzeppelin/contracts/access/Ownable.sol";</b>
+
+<br><br>These lines import two Solidity contracts from the OpenZeppelin lib6rary.
+<br>ERC20.sol: This contract provides the implementation of the ERC20 standard for fungible tokens on the Ethereum blockchain.
+<br>Ownable.sol: This contract provides basic authorization control functions, simplifying the implementation of user permissions.
+<br><br>Next section defines the constructor function of the "AlphaToken" contract.
+
+<br>-mapping(address => uint26) public balances; declares a public mapping
+called "balances" that associates Ethereum addresses with unsigned 26-bit integer
+<br>-constructor(address initialOwner): This is the constructor function, which is executed only once during contract deployment. It takes an "initialOwner" address as an argument.
+<br>-ERC20("AlphaToken", "ATK"): This calls the constructor of the "ERC20" contract with two arguments: the name of the token ("AlphaToken") and its symbol ("ATK").
+<br>-Ownable(initialOwner): This calls the constructor of the Ownable contract with "initialOwner" as the owner of the contract.
+<br>-_mint(msg.sender, 1000000 * 10 ** decimals()): This mints 1,000,000 tokens and assigns them to the contract deployer "(msg.sender)". The number is multiplied by 10 raised to the power of "decimals()", which is a function inherited from the ERC20 contract that returns the number of decimals for the token (typically 18).
+<br><br>The function mint allows the owner of the contract to mint new tokens and assign them to a specified address.
+<br>-public: This function can be called externally.
+<br>-onlyOwner: This is a modifier from the "Ownable" contract that restricts the function to be callable only by the owner of the contract.
+<br>-_mint(to, amount): This function is inherited from the "ERC20" contract and is used to mint new tokens and assign them to the specified address "(to)" with the specified amount "(amount)".
+<br><br>The function "balanceof" and takes an Ethereum address "_user" as input.
+<br>-It's a public view function, meaning it can be called from outside the contract and doesn't modify the state.
+<br>-It overrides a function from an inherited contract/interface.
+<br>-It returns the balance of the "_user" by accessing the balances mapping with "_user" as the key.
+<br><br>The function named "mintToken" 
+<br>-It checks if the caller "(msg.sender)" has at least 1000 tokens in their balance before minting.
+<br>-If the condition is met, it adds 1000 tokens to the caller's balance.
+<br>-It emits a "mintTokenEvent" event indicating that tokens have been minted.
+<br><br>The function named "transfer" takes an address "_receiver" and a uint256 "amount" as parameters.
+<br>-It's a public view function, which overrides a view function from an interface
+<br>-It checks if the amount is not zero and if the sender (msg.sender) has enough tokens to transfer.
+<br>-If conditions are met, it transfers the amount of tokens from the sender to the _receiver.
+<br>-It emits a Transfer event indicating the transfer of tokens.
+
+<br><br>The function named "approve"  takes an address "_delegate" and a uint256 "_amount" as parameters.
+<br>-It overrides a function from an inherited contract/interface.
+<br>-It allows "_delegate" to spend "_amount" of tokens on behalf of the caller (msg.sender).
+<br><br>The function named allowance  takes two addresses "_owner" and "_delegate" as parameters.
+<br>-It's a public view function, overriding a function from an inherited contract/interface.
+<br>-It returns the amount of tokens that "_delegate" is allowed to spend on behalf of "_owner".
+               </p><br>
+
+               <div class="text">
+                NEW CODE without OPPENZEPPELIN
+                </div>
+                <p class="para"> <img src="erc20.1.png"><br><br><img src="erc20.2.png"><br><br><img src="erc20.3.png"><br><br>
+                    Contract ERC20Interface, outlines the standard functions and events expected in an ERC20 token contract.
+                    <br>It declares functions like <b>totalSupply(), balanceOf(), allowance(), transfer(),  and transferFrom()</b>, specifying their inputs, outputs, and access modifiers.
+                    <br>It also includes events such as <b>Transfer</b> and <b>Approval</b>, which are emitted to notify external clients about token transfers and approvals
+                    
+                    <br><br><b>Contract MyToken</b>, is the main token contract  which inherits from <b>ERC20Interface</b> to implement the ERC20 standard functions and events
+                    <br><b>symbol, name, decimals, and _totalSupply</b> are public variables representing the symbol, name, decimal places, and total supply of the token, respectively
+                    <br><b>mapping(address => uint) balances,</b>This mapping relates Ethereum addresses to the token balances held by those addresses.
+                    <br><b>mapping(address => mapping(address => uint)) allowed;</b>This mapping tracks the spending allowances granted by token holders to other addresses
+                    <br><br><b>constructor()</b>This is the constructor function, which is a special function that gets executed only once when the contract is deployed.
+                    <br>Each variable has been assigned a value
+                    <br>There is  assignment of  the entire total supply of tokens to the specified wallet address, making it the initial holder of all tokens
+                    <br>The line emit <b>Transfer</b> is an event to indicate the initial distribution of tokens.
+                    <br>It signals given metamask address has received <b>_totalSupply</b> tokens from the zero address <b>(address(0)),</b> effectively minting all tokens and assigning them to the specified address
+                    <br><br>The function <b>totalSupply()</b> returns the total supply of tokens in circulation.
+                    <br>It subtracts the balance of the zero address <b>(address(0))</b> from the <b>_totalSupply</b> to exclude any tokens assigned to the zero address.
+                    <br>The result is the total supply of tokens that are held by token holders.
+                    <br><br>The <b>balanceOf(address tokenOwner)</b> function returns the balance of tokens owned by the specified <b>tokenOwner</b>.
+                    <br>It simply retrieves the balance of the <b>tokenOwner</b> from the <b>balances</b> mapping and returns it.
+                    <br><br>The <b>transfer(address to, uint tokens)</b> function allows the sender to transfer tokens to another address <b>(to)</b>.
+                    <br>It first subtracts <b>tokens</b> from the sender's balance Then, it adds <b>tokens</b> to the recipient's balance.
+                    <br>After the transfer, it emits a <b>Transfer</b> event to notify listeners about the token transfer.
+                    <br><br>The <b>transferFrom(address from, address to, uint tokens)</b> function allows an approved spender to transfer tokens from one address <b>(from)</b> to another <b>(to)</b>.
+                    <br>It first subtracts <b>tokens</b> from the sender's balance 
+                    <br>Then, it subtracts <b>tokens</b> from the spender's allowance.
+                    <br>After the transfer, it adds <b>tokens</b> to the recipient's balance 
+                    <br>Finally, it emits a <b>Transfer</b> event to notify listeners about the token transfer.
+                    <br><br>The <b>allowance(address tokenOwner, address spender)</b> function returns the remaining number of tokens that the <b>spender</b> is allowed to spend on behalf of the <b>tokenOwner.</b>
+                    <br>It retrieves the allowance from the <b>allowed</b> mapping and returns it.
+                    
+                    
+                    <br><br><b>receive():</b> This is a special function introduced in Solidity version 0.6.0 that is called when the contract receives Ether without any data. It is marked as <b>external</b> to specify that it can be called from outside the contract. Only one <b>receive()</b> function is allowed per contract. It is used to handle plain Ether transactions
+                    <br><br><b>fallback():</b> This is another special function in Solidity used to handle calls to undefined or invalid functions in the contract
+                    <br><br>Now we are done writing the contract,now run ‘npx hardhat compile’ and check if it gets successfully gets compiled
+                    
+               </p><br>
+           <script src="myscripts.js"></script>
+
+    </body>
+
+ </html>  
