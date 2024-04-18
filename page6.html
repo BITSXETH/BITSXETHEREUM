@@ -1,0 +1,168 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ethereum Course</title>
+        <link rel="stylesheet" href="page.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+       
+
+    </head>
+    <body>
+         <div class="sidebar">
+            <div class="logo_content">
+                <div class="logo">
+                    <i class='bx bxs-hard-hat'></i>
+                    <div class="logo_name"> ETHxBITS</div>
+                 </div>
+                 <i class='bx bx-menu' id="btn" ></i>
+            </div>
+            <ul class="nav_list">
+                <li>
+                   <a href="page1.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">Introduction</span>
+                   </a> 
+                   <a href="page2.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">Solidity</span>
+                   </a>
+                   <a href="page3.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">ERC20</span>
+                   </a> 
+                   <a href="page4.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">Deplyoment</span>
+                   </a> <a href="page5.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">On-chain-Dex</span>
+                   </a>
+                   <a href="page6.html">
+                    <i class='bx bx-grid-alt' ></i>
+                    <span class="links_name">FrontEnd</span>
+                   </a>
+                     
+                </li>
+            </ul>    
+        </div>            
+          <div class="home_content">  
+            <div class="text1">Front-End For DApp</div>
+            <div class="text">Introduction</div>
+                 <p class="para"> Frontend development in DApps involves creating the user interface (UI) and user experience (UX) components that interact with the decentralized backend. The frontend interacts with the decentralized backend through various protocols and APIs. 
+                  <br>  Frontend development in DApps offers unique challenges and opportunities compared to traditional web development. By understanding the decentralized architecture, leveraging appropriate tools and libraries, and prioritizing security and usability, frontend developers can create compelling user experiences for decentralized applications.
+                 </p><br> 
+            <div class="text">Prerequisites</div>
+                 <p class="para">Frontend development for most DApps is done through JavaScript using Node.js and assistant libraries like Web3.js and ether.js.
+                   <br><br>Web3.js is a JavaScript library that allows interaction with Ethereum-compatible blockchains. It enables frontend developers to connect their applications to the blockchain, facilitating actions like reading data from the blockchain, sending transactions, and listening to events. Other platforms have similar libraries, such as Eosjs for EOS and TronWeb for Tron.
+                 </p><br> 
+            <div class="text">Wallet Integration</div>
+                 <p class="para">DApps often require users to sign transactions using their cryptocurrency wallets. Integrating wallet functionalities into the frontend is crucial. Wallets like MetaMask provide browser extensions that can be integrated into DApp interfaces, allowing users to interact securely with the blockchain.
+                 </p><br> 
+            <div class="text">Follow-Along Example</div>
+                 <p class="para">Let's break down the provided JavaScript code and provide a comprehensive documentation for a beginner:
+                   <br><br> 1. Global Variables<br>
+                   let userAddress, provider, signer;<br>
+                   let inputFlag;<br>
+                   let ExchangeABI, ExchangeContract;<br>
+                   let AggregatorV3InterfaceABI, EthereumPriceOracleContract;<br>
+                   let USDbABI, USDbContract, USDbWithSigner;<br>
+                   let ETHABI, ETHContract, ETHWithSigner;<br><br>
+                   These are global variables declared using let keyword. They store various information such as user address, provider, contract ABIs (Application Binary Interfaces), contract instances, etc.<br>
+                </p><br>
+                   <div class="text">2. HTML Elements:</div>
+                   <p class="para">// HTML elements selected using document.getElementById or querySelector
+                    const connectWalletButton = document.getElementById("button-connect-wallet");<br>
+                    const ethSize = document.getElementById('eth-size');<br>
+                    const usdSize = document.getElementById('usd-size');<br>
+                    const limitPrice = document.getElementById('limit-price');<br>  
+                    const feeValue = document.getElementById('fee-value');<br>
+                    const totalValue = document.getElementById('total-value');<br>
+                    const buyButton = document.getElementById('buy-button');<br>
+                    const sellButton = document.getElementById('sell-button');<br>
+                    const blockNumberValue = document.getElementById('block-number-value');<br>             
+                    const pairWrapperDiv = document.querySelector('.left');<br>
+                    These variables store references to HTML elements that are used to interact with the user interface.
+                   </p><br>
+            <div class="text">3. Event Listeners:</div>
+                 <p class="para">// Event listeners attached to various HTML elements<br>
+                    document.addEventListener("DOMContentLoaded", onLoad);<br>
+                    connectWalletButton.addEventListener('click', connectWithMetamask);<br>
+                    ethSize.addEventListener('input', ethInputHandler);<br>
+                    usdSize.addEventListener('input', usdInputHandler);<br>
+                    limitPrice.addEventListener('input', limitInputHandler);<br>
+                    buyButton.addEventListener('mouseover', buyMouseoverHandler);<br>
+                    buyButton.addEventListener('mouseleave', buyMouseleaveHandler);<br>
+                    buyButton.addEventListener('click', buyHandler);<br>
+                    sellButton.addEventListener('mouseover', sellMouseoverHandler);<br>
+                    sellButton.addEventListener('mouseleave', sellMouseleaveHandler);<br>
+                    sellButton.addEventListener('click', sellHandler);<br>
+                    pairWrapperDiv.addEventListener('click', pairWrapperHandler);<br>
+                    ethereum.on('accountsChanged', () => location.reload());<br>
+                    ethereum.on('chainChanged', () => location.reload());<br><br>
+                    These event listeners handle user interactions with the webpage, such as clicking buttons, inputting values, etc. Each listener is associated with a specific function that executes when the event occurs.
+                 </p><br> 
+            <div class="text">4. Functions:</div>
+                 <p class="para">Initialization Functions:<br>
+                    async function onLoad() { ... }<br>
+                    async function isMetamaskConnected() { ... }<br>
+                    async function isSepolia() { ... }<br>
+                    async function connectWithMetamask() { ... }<br>
+                    async function showAddress() { ... }<br>
+                    These functions handle the initialization of the webpage, checking if MetaMask is installed and connected, retrieving user's address, and verifying the network connection.<br><br>
+                    Input Handler Functions:<br>
+                    function ethInputHandler() { ... }<br>
+                    function usdInputHandler() { ... }<br>
+                    function limitInputHandler() { ... }<br>
+                    These functions update the input fields based on user input and recalculate values accordingly.<br><br>
+                    Mouse Event Handler Functions:<br>
+                    function buyMouseoverHandler() { ... }<br>
+                    function buyMouseleaveHandler() { ... }<br>
+                    function sellMouseoverHandler() { ... }<br>
+                    function sellMouseleaveHandler() { ... }<br>
+                    These functions handle mouseover and mouseleave events on buy and sell buttons, updating fee and total values accordingly.<br><br>
+                    Block Number Update Function:<br>
+                    function updateBlockNumber(blockNumber) { ... }<br>
+                    This function updates the displayed block number on the webpage.<br><br>
+                    Order Book Functions:<br>
+                    <b>javascript<br>
+                    Copy code<br></b>
+                    async function fetchOB() { ... }<br>
+                    function initOBRow(price, orderSize, side) { ... }<br>
+                    function initOBMidBar(spread) { ... }<br>
+                    function updateOB(sellOB, buyOB) { ... }<br>
+                    These functions handle fetching, initializing, and updating the order book displayed on the webpage.<br><br>
+                    Active Orders Functions:<br>
+                    async function initActiveOrderRow(order, side, priceIdx) { ... }<br>
+                    async function updateActiveOrders() { ... }<br> 
+                    These functions handle initializing and updating the active orders displayed on the webpage.<br><br>
+                    Price Oracle Function:<br>
+                    async function updatePriceOracle() { ... }<br>
+                    This function updates the price oracle value displayed on the webpage.<br><br>
+                    Approval Functions:<br>
+                    async function userCanSpendUSDb() { ... }<br>
+                    async function initApproveBuyButton(userCanSpend) { ... }<br>
+                    async function approveUSD() { ... }<br>
+                    async function userCanSpendETH() { ... }<br>
+                    async function initApproveSellButton(userCanSpend) { ... }<br>
+                    async function approveETH() { ... }<br>
+                    These functions handle checking if the Exchange contract can spend user's USDb or ETH, initializing approval buttons, and handling approval transactions.<br><br>
+                    Other Utility Functions:<br>
+                    function disableUserInput() { ... }<br>
+                    async function buyHandler() { ... }<br>
+                    async function sellHandler() { ... }<br>
+                    These functions handle various utility tasks such as disabling user input, buying and selling ETH, etc.<br><br> 
+                </p><br>
+                <div class="text">Conclusion</div>
+                <p class="para">This JavaScript code provides the functionality for a decentralized exchange (DEX) frontend, allowing users to connect their wallets, view order book data, place buy and sell orders, and interact with smart contracts. It utilizes event listeners, input handlers, and various utility functions to achieve this functionality. The code is structured and documented to make it easier for beginners to understand and modify as needed.
+                </p><br>
+                
+                 
+
+                    
+
+     <script src="myscripts.js"></script>
+
+    </body>
+
+ </html>       
