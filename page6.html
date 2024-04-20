@@ -46,8 +46,8 @@
                 </li>
             </ul>    
         </div>            
-          <div class="home_content">  
-            <div class="text1">Front-End For DApp</div>
+        <div class="home_content">  
+            <div class="text1">Front-End For AlphaCoin and DEX</div>
             <div class="text">Introduction</div>
                  <p class="para"> Frontend development in DApps involves creating the user interface (UI) and user experience (UX) components that interact with the decentralized backend. The frontend interacts with the decentralized backend through various protocols and APIs. 
                   <br>  Frontend development in DApps offers unique challenges and opportunities compared to traditional web development. By understanding the decentralized architecture, leveraging appropriate tools and libraries, and prioritizing security and usability, frontend developers can create compelling user experiences for decentralized applications.
@@ -59,7 +59,45 @@
             <div class="text">Wallet Integration</div>
                  <p class="para">DApps often require users to sign transactions using their cryptocurrency wallets. Integrating wallet functionalities into the frontend is crucial. Wallets like MetaMask provide browser extensions that can be integrated into DApp interfaces, allowing users to interact securely with the blockchain.
                  </p><br> 
-            <div class="text">Follow-Along Example</div>
+            <div class="text">Front-End for Alphacoin</div>
+                 <p class="para">As an example, you are provided with the frontend code for the above mentioned “AlphaCoin”. This code is a very basic HTML page that serves as a simple interface for interacting with a smart contract on the Ethereum blockchain. The smart contract is a standard ERC-20 token contract, and the interface allows users to connect their Ethereum wallets, check their token balance, transfer tokens, and approve token allowances.
+
+                    <br><br>Let's break down the code section by section:<br><br>
+                    
+                    <b>HTML Structure<br></b>
+                    <b>DOCTYPE and HTML tags:</b> These define the document type and language.<br>
+                    <b>Head:</b> Contains metadata and includes the web3.js library.<br>
+                    <b>Body:</b> Contains the interface elements and scripts.<br><br>
+                    <b>JavaScript Functions<br></b>
+                    <b>init()</b><br>
+                    This function initializes the web3 provider and checks if the user has an Ethereum-enabled browser extension (like MetaMask). If so, it prompts the user to connect their wallet and fetches the connected account's address. It then initializes the smart contract.
+                    
+                    <b><br>initContract()</b><br>
+                    This function initializes the smart contract by specifying its address and ABI (Application Binary Interface). ABI defines how to interact with the contract. The ABI includes several functions like balanceOf, transfer, approve, etc., which correspond to the ERC-20 standard.
+                    
+                    <b><br>updateBalance()</b><br>
+                    This function updates the displayed balance for the connected account by calling the balanceOf function from the smart contract.
+                    
+                    <b><br>transfer()</b><br>
+                    This function allows the user to transfer tokens to another Ethereum address. It retrieves the recipient's address and the amount to be transferred from the input fields and calls the transfer function of the smart contract.
+                    
+                    <b><br>approve()</b><br>
+                    This function approves a spender to spend tokens on behalf of the connected account up to a specified amount. It retrieves the spender's address and the allowance amount from the input fields and calls the approve function of the smart contract.
+                    
+                    <b><br>connectWallet()</b><br>
+                    This function simply calls the init() function to connect the user's Ethereum wallet when the "Connect Wallet" button is clicked.
+                    
+                    <br><br><b>Event Listeners<br></b>
+                    <b>window.addEventListener('load', async () => { ... });:</b> This event listener triggers the init() function when the page is fully loaded, ensuring the web3 provider is initialized.
+                    <br><br><b>Web3.js Functions</b><br>
+                    <b>Web3(window.ethereum):</b> Initializes the web3 object with the Ethereum provider.
+                    <br><b>window.ethereum.enable():</b> Requests permission to access the user's Ethereum accounts.
+                    <br><b>web3.eth.getAccounts():</b> Fetches the Ethereum accounts available in the user's wallet.
+                    <br><b>new web3.eth.Contract(abi, address):</b> Creates a contract instance using the ABI and contract address.
+                    <br><b>contract.methods.methodName().call():</b> Calls a view or pure method from the smart contract.
+                    <br><b>contract.methods.methodName().send({ from: account }):</b> Sends a transaction to the smart contract.
+                 </p><br> 
+            <div class="text">Front-End for Dex-On-Chain</div>
                  <p class="para">Let's break down the provided JavaScript code and provide a comprehensive documentation for a beginner:
                    <br><br> 1. Global Variables<br>
                    let userAddress, provider, signer;<br>
@@ -155,11 +193,7 @@
                 </p><br>
                 <div class="text">Conclusion</div>
                 <p class="para">This JavaScript code provides the functionality for a decentralized exchange (DEX) frontend, allowing users to connect their wallets, view order book data, place buy and sell orders, and interact with smart contracts. It utilizes event listeners, input handlers, and various utility functions to achieve this functionality. The code is structured and documented to make it easier for beginners to understand and modify as needed.
-                </p><br>
-                
-                 
-
-                    
+                </p><br>        
 
      <script src="myscripts.js"></script>
 
